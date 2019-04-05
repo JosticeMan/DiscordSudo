@@ -1,0 +1,12 @@
+{
+  "name": "Discord-Channel-Bot",
+  "version": "1.0.0",
+  "description": "A normal bot with simple commands to enable channel proxying.",
+  "main": "main/main.js",
+  "author": "Justin Yau",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "mongodb": "^3.2.3",
+    "winston": "^3.2.1"
+  }
+}
