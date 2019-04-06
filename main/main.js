@@ -7,6 +7,7 @@
 
 var Discord = require('discord.js'); // npm install discord.js
 var logger = require('winston');     // npm install winston
+const BigNumber = require('bignumber.js'); // This allows us to hold larger than 16 digit ints
 var db = require('../mongodb/db.js'); // Our mongodb database will be coming from here
 
 /**
@@ -55,7 +56,7 @@ bot.on('message', message => {
             message.channel.send("Prefix successfully changed to: " + prefix);
             break;
         case 'adminchannel':
-            channelId = parseInt(args[0]);
+            var channelId = new BigNumber(args[0]);
             if(isNaN(channelId)) {
                 message.channel.send("Please enter a proper ID!");
                 break;
