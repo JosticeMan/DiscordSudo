@@ -106,6 +106,7 @@ bot.on('message', message => {
                     message.channel.send("Successfully updated admin channel to ID: " + channelId);
                 }
             });
+            break;
         default:
             message.channel.send("Command: " + command + " not recognized!");
     }
