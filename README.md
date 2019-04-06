@@ -9,6 +9,7 @@ redirecting the result to another channel, whilst logging in a set admin log cha
   To get this bot properly working, obtain a bot token at https://discordapp.com/developers/applications/ <br />
   Put the token in the auth.json file appropriately. <br />
   To setup the mongodb, you can either run it on your computer or use mongo atlas. <br />
+  Create a database named "mydb" and collection named "server" <br />
   Mongo Atlas can be found at: https://cloud.mongodb.com/ <br />
   To run mongodb on your computer see: https://www.mongodb.com/ <br />
   Put the access url in /mongodb/db.js -> url variable <br />
