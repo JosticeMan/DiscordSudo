@@ -1,7 +1,9 @@
 # DiscordChannelProxy
 
 A bot with mongodb backend capable of taking commands from any channel and <br />
-redirecting the result to another channel, whilst logging in a set admin log channel. 
+redirecting the result to another channel, whilst logging in a set admin log channel. <br /> <br />
+
+Perfect for pranking/anonymous commands. 
 
 # Setup
 
