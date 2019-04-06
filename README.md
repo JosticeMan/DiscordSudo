@@ -12,6 +12,10 @@ redirecting the result to another channel, whilst logging in a set admin log cha
   Mongo Atlas can be found at: https://cloud.mongodb.com/ <br />
   To run mongodb on your computer see: https://www.mongodb.com/ <br />
   Put the access url in /mongodb/db.js -> url variable <br />
+  I used node.js to run this bot. Install dependencies: <br />
+  npm install discord.js mongodb winston bignumber.js  <br />
+  To start the bot run: <br />
+  node main/main.js 
 
 # Commands
 
