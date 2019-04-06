@@ -7,7 +7,15 @@
 
 var MongoClient = require('mongodb').MongoClient;         // npm install mongodb
 const BigNumber = require('bignumber.js');                // This allows us to hold larger than 16 digit ints
+/**
+ INSERT HERE
+ Put the mongo URL here!
+ */
 var url = ""; // The address of the mongo database
+/**
+ INSERT HERE
+ Put the mongo URL here!
+ */
 
 var client; // The MongoClient object that we will use to make connections
 
