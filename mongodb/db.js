@@ -1,14 +1,35 @@
-var mongo = require('mongodb').MongoClient;         // npm install mongodb
-var url = "mongodb://localhost:27017/";
+var MongoClient = require('mongodb').MongoClient;         // npm install mongodb
+var url = "";;
 
-export function createDatabase(name){
-    mongo.connect(url, function(err, db) {
-        if (err) throw err;
-        var dbo = db.db("mydb");
-        dbo.createCollection(name, function(err, res) {
-            if (err) throw err;
-            console.log("Collection " + name + " created!");
-            db.close();
+var client;
+
+async function connect() {
+    client = await new MongoClient(url, { useNewUrlParser: true });
+    console.log("Connected to mongodb database!");
+}
+
+function insert(serverId, channelId){
+    var sID = parseInt(serverId);
+    return client.connect(async function(err) {
+        if (err) {
+            console.log(err);
+            return -1;
+        }
+        const dbo = await client.db("mydb").collection("server");
+        var info = {
+          serverId: sID,
+          channelId: channelId
+        };
+        dbo.insertOne(info, function(err, res) {
+            if (err) {
+                console.log(err);
+                return -1;
+            }
+            console.log("serverId: " + sID + " with channelId: " + channelId + " inserted!");
         });
+        client.close();
+        return 0;
     });
 };
+
+module.exports = {connect, insert};

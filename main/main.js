@@ -17,7 +17,6 @@ var db = require('../mongodb/db.js'); // Our mongodb database will be coming fro
  */
 var auth = require('../auth.json');   // touch auth.json -> vim auth.json
 var prefix = '!';
-var collectionName = "server";        // Name of the collection that we will be accessing to get admin-channel ids.
 
 // Configure logger settings
 logger.remove(logger.transports.Console);
@@ -28,10 +27,11 @@ logger.level = 'debug';
 
 // Initialize Discord Bot
 var bot = new Discord.Client();
+var client;
 
 bot.once('ready', function (evt) {
     logger.info('Connected!');
-    db.createDatabase("server");
+    client = db.connect();
 });
 
 bot.login(auth.token);
@@ -47,11 +47,22 @@ bot.on('message', message => {
             message.channel.send("**Help Menu**:\n" +
                 "\tPrefix: " + prefix + "\n" +
                 "\tHelp Menu: " + prefix + "help\n" +
-                "\tChange prefix: " + prefix + "prefix (newPrefix)");
+                "\tChange prefix: " + prefix + "prefix (newPrefix)\n" +
+                "\tAdminchannel: " + prefix + "adminchannel (channelId)\n");
             break;
         case 'prefix':
             prefix = args[0];
             message.channel.send("Prefix successfully changed to: " + prefix);
+            break;
+        case 'adminchannel':
+            channelId = parseInt(args[0]);
+            if(isNaN(channelId)) {
+                message.channel.send("Please enter a proper ID!");
+                break;
+            }
+            if(db.insert(message.guild.id, channelId) != -1) {
+                message.channel.send("Successfully updated admin channel to ID: " + channelId);
+            }
             break;
         default:
             message.channel.send("Command: " + command + " not recognized!");
