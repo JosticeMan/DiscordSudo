@@ -51,7 +51,8 @@ bot.on('message', message => {
                 "\tHelp Menu: " + prefix + "help\n" +
                 "\tChange prefix: " + prefix + "prefix (newPrefix)\n" +
                 "\tAdminchannel: " + prefix + "adminchannel (channelId)\n" +
-                "\tSudo: " + prefix + "sudo (channelId) (command) (optional parameters)");
+                "\tSudo: " + prefix + "sudo (channelId) (command) (optional parameters)\n" +
+                "To get channelIds, see https://support.discordapp.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-");
             break;
         case 'prefix':
             if(args.length <= 0) {
@@ -118,7 +119,8 @@ function sudoCommand(channel, args) {
                 "\tHelp Menu: " + prefix + "help\n" +
                 "\tChange prefix: " + prefix + "prefix (newPrefix)\n" +
                 "\tAdminchannel: " + prefix + "adminchannel (channelId)\n" +
-                "\tSudo: " + prefix + "sudo (channelId) (command) (optional parameters)");
+                "\tSudo: " + prefix + "sudo (channelId) (command) (optional parameters)\n" +
+                "To get channelIds, see https://support.discordapp.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-");
             break;
         case 'prefix':
             if(args.length <= 2) {
